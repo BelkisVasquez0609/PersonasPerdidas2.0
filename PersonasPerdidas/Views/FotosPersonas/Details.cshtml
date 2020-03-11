@@ -1,0 +1,34 @@
+﻿@model PersonasPerdidas.Models.FotosPersona
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FotosPersona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fotos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fotos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CrearPersonaPerdida.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CrearPersonaPerdida.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Fotos }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
