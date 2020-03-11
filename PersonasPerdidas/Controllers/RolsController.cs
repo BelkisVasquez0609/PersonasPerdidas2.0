@@ -71,7 +71,7 @@ namespace PersonasPerdidas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Rols", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
             }
-
+               
             return View(rols);
         }
 
