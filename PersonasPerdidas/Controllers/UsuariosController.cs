@@ -12,7 +12,7 @@ namespace PersonasPerdidas.Controllers
 {
     public class UsuariosController : Controller
     {
-        private VisualRekognitionComparisonEntities1 db = new VisualRekognitionComparisonEntities1();
+        private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: Usuarios
         public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo)
@@ -132,8 +132,8 @@ namespace PersonasPerdidas.Controllers
             ViewBag.id_rol = new SelectList(db.Rol, "Id_Rol", "Descripcion", usuarios.id_rol);
             return View(usuarios);
         }
-       
-        
+
+
 
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id, int rol, int usuario, string NombreUsuario, string Correo)

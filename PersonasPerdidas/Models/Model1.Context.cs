@@ -13,10 +13,10 @@ namespace PersonasPerdidas.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VisualRekognitionComparisonEntities1 : DbContext
+    public partial class VisualRekognitionComparisonEntities2 : DbContext
     {
-        public VisualRekognitionComparisonEntities1()
-            : base("name=VisualRekognitionComparisonEntities1")
+        public VisualRekognitionComparisonEntities2()
+            : base("name=VisualRekognitionComparisonEntities2")
         {
         }
     

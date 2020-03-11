@@ -12,7 +12,7 @@ namespace PersonasPerdidas.Controllers
 {
     public class RolsController : Controller
     {
-        private VisualRekognitionComparisonEntities1 db = new VisualRekognitionComparisonEntities1();
+        private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: Rols
         public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo)
@@ -71,7 +71,7 @@ namespace PersonasPerdidas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Rols", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
             }
-               
+
             return View(rols);
         }
 
@@ -111,7 +111,7 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Entry(rols).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Rols", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
             }
             return View(rols);
         }

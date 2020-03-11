@@ -225,6 +225,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Camaras\Create.cshtml" />
     <Content Include="Views\Camaras\Delete.cshtml" />
     <Content Include="Views\Camaras\Details.cshtml" />
@@ -250,10 +251,8 @@
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
-    <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Usuarios\Registrarse.cshtml" />
-    <Content Include="Views\FotosPersonas\DetalleFotos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

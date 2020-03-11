@@ -35,14 +35,9 @@
             @Html.DisplayFor(model => model.Edad)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
+       
 
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-
+       
         <dt>
             @Html.DisplayNameFor(model => model.FechaEncontrado)
         </dt>
@@ -61,13 +56,14 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-    <input type="submit" value="Delete" class="btn btn-default" /> |
-    @Html.ActionLink("Volver a la lista de personas", "Index", "CrearPersonaPerdidas", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista de personas", "Index", "CrearPersonaPerdidas", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
 
-</div>
+        </div>
     }
 </div>

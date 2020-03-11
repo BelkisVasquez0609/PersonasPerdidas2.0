@@ -9,8 +9,8 @@
           <Key>
             <PropertyRef Name="id_foto" />
           </Key>
-          <Property Name="id_foto" Type="int" Nullable="false" />
-          <Property Name="foto" Type="image" Nullable="false" />
+          <Property Name="id_foto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foto" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="CrearPersonaPerdida">
           <Key>
@@ -30,13 +30,13 @@
           </Key>
           <Property Name="Id_Fotos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_personaDesaparecida" Type="int" />
-          <Property Name="Fotos" Type="image" Nullable="false" />
+          <Property Name="Fotos" Type="varbinary(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Rol">
           <Key>
             <PropertyRef Name="Id_Rol" />
           </Key>
-          <Property Name="Id_Rol" Type="int" Nullable="false" />
+          <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -124,8 +124,8 @@
           <Key>
             <PropertyRef Name="id_foto" />
           </Key>
-          <Property Name="id_foto" Type="Int32" Nullable="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="id_foto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="CrearPersonaPerdida">
           <Key>
@@ -154,7 +154,7 @@
           <Key>
             <PropertyRef Name="Id_Rol" />
           </Key>
-          <Property Name="Id_Rol" Type="Int32" Nullable="false" />
+          <Property Name="Id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__id_rol__3B75D760" FromRole="Rol" ToRole="Usuario" />
         </EntityType>
@@ -216,7 +216,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VisualRekognitionComparisonEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VisualRekognitionComparisonEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Camara" EntityType="Self.Camara" />
           <EntitySet Name="CrearPersonaPerdida" EntityType="Self.CrearPersonaPerdida" />
           <EntitySet Name="FotosPersona" EntityType="Self.FotosPersona" />
@@ -241,7 +241,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VisualRekognitionComparisonModelStoreContainer" CdmEntityContainer="VisualRekognitionComparisonEntities1">
+        <EntityContainerMapping StorageEntityContainer="VisualRekognitionComparisonModelStoreContainer" CdmEntityContainer="VisualRekognitionComparisonEntities2">
           <EntitySetMapping Name="Camara">
             <EntityTypeMapping TypeName="VisualRekognitionComparisonModel.Camara">
               <MappingFragment StoreEntitySet="Camara">

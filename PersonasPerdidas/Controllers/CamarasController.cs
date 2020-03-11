@@ -12,7 +12,7 @@ namespace PersonasPerdidas.Controllers
 {
     public class CamarasController : Controller
     {
-        private VisualRekognitionComparisonEntities1 db = new VisualRekognitionComparisonEntities1();
+        private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: Camaras
         public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo)

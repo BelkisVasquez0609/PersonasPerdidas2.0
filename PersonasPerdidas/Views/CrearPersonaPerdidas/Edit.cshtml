@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>CrearPersonaPerdida</h4>
         <hr />
@@ -49,16 +49,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Estado)
-                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.FechaEncontrado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

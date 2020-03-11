@@ -16,7 +16,7 @@ namespace PersonasPerdidas.Controllers
 {
     public class FotosPersonasController : Controller
     {
-        private VisualRekognitionComparisonEntities1 db = new VisualRekognitionComparisonEntities1();
+        private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: FotosPersonas
         public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo)
@@ -43,7 +43,7 @@ namespace PersonasPerdidas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-       
+
             if (fotosPersona == null)
             {
                 return HttpNotFound();
@@ -108,8 +108,8 @@ namespace PersonasPerdidas.Controllers
                 db.FotosPersona.Add(fotosPersona);
                 db.SaveChanges();
                 return RedirectToAction("Index", "CrearPersonasPerdidas", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
-            
-        }
+
+            }
 
             ViewBag.id_personaDesaparecida = new SelectList(db.CrearPersonaPerdida, "Id_CPP", "Nombre", fotosPersona.id_personaDesaparecida);
             return View(fotosPersona);

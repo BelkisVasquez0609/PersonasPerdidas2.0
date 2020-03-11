@@ -12,7 +12,7 @@ namespace PersonasPerdidas.Controllers
 {
     public class CrearPersonaPerdidasController : Controller
     {
-        private VisualRekognitionComparisonEntities1 db = new VisualRekognitionComparisonEntities1();
+        private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: CrearPersonaPerdidas
         public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo)
@@ -27,7 +27,7 @@ namespace PersonasPerdidas.Controllers
         }
 
         // GET: CrearPersonaPerdidas/Details/5
-        public ActionResult Details(int? id,int rol, int usuario, string NombreUsuario, string Correo)
+        public ActionResult Details(int? id, int rol, int usuario, string NombreUsuario, string Correo)
         {
             ViewBag.Rol = rol;
             ViewBag.UsuarioActual = usuario;

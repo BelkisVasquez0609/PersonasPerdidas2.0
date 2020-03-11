@@ -21,13 +21,14 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-    <input type="submit" value="Delete" class="btn btn-default" /> |
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
 
-    @Html.ActionLink("Volver a la lista de roles", "Index", "Rols", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
-</div>
+            @Html.ActionLink("Volver a la lista de roles", "Index", "Rols", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+        </div>
     }
 </div>
