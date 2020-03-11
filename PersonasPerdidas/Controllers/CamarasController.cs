@@ -71,7 +71,8 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Camara.Add(camara);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Camaras", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
+
             }
 
             return View(camara);

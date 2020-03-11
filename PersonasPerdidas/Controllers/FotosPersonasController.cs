@@ -31,7 +31,7 @@ namespace PersonasPerdidas.Controllers
         }
 
         // GET: FotosPersonas/Details/5
-        public ActionResult Details(int? id, int rol, int usuario, string NombreUsuario, string Correo)
+        public ActionResult DetalleFotos(int? id, int rol, int usuario, string NombreUsuario, string Correo)
         {
             ViewBag.Rol = rol;
             ViewBag.UsuarioActual = usuario;
@@ -51,7 +51,9 @@ namespace PersonasPerdidas.Controllers
             return View(fotosPersona);
         }
 
-        // GET: FotosPersonas/Create
+        // GET: FotosPersonas/
+
+
         public ActionResult Create(int rol, int usuario, string NombreUsuario, string Correo)
         {
             ViewBag.Rol = rol;

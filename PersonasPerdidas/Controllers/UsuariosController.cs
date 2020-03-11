@@ -126,7 +126,7 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Usuario.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Usuarios", new { rol, usuario, NombreUsuario, Correo });
             }
 
             ViewBag.id_rol = new SelectList(db.Rol, "Id_Rol", "Descripcion", usuarios.id_rol);
@@ -172,7 +172,7 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Entry(usuarios).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Usuarios", new { rol, usuario, NombreUsuario, Correo });
             }
             ViewBag.id_rol = new SelectList(db.Rol, "Id_Rol", "Descripcion", usuarios.id_rol);
             return View(usuarios);

@@ -59,7 +59,7 @@
 }
 
 <div>
-    @Html.ActionLink("Volver al Inicio", "login", "Home", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+    @Html.ActionLink("Volver a la lista de usuarios", "Index", "Usuarios", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
 </div>
 
 @section Scripts {
