@@ -1,46 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/MiHojaDeEstilo.css" rel="stylesheet" />
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+   
+
+    <!-- Compiled and minified CSS -->
+    
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-                    @Html.Partial("_menu")
+    <div class="ancho-letras">
+        <div class="letras-slider">
+            <p class="animated zoomIn">Perdiste a un pariente o amigo? </p>
+            <h1 class="animated flip">Lo encontraremos por ti</h1>
+            @*<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>*@
 
-                </ul>
-            </div>
-            @*<div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @Html.Partial("_Menu")
-                </ul>
-            </div>*@
         </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <header>
+            <div class="ancho">
+                <div class="logo">
+                    <p><a htrf="Index.cshtml">Vecindario Seguro</a></p>
+                </div>
+                <nav>
+                    <ul>
+                        @Html.Partial("_menu")
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+
+    <div id="particles-js">
+
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
+ </div>
+    <div class="footer" style="background-color:black; position:absolute; width:100%;height:125px;">
+        <center> <p style=" color:white; font-family:Raleway-Regular;        font-size: 25px; text-size-adjust: 50%;padding-top: 50px;">&copy; @DateTime.Now.Year - Vecindario seguro/Dream Base (B&G)</p></center>
     </div>
-
+    <script src="particles.js"></script>
+    <script src="~/Content/particles.js"></script>
+    <script src="app.js"></script>
+    <script src="~/Content/app.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

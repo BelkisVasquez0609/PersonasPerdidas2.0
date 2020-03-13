@@ -1,7 +1,240 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<!-- bootstrap v3.3.7 css -->
+@*<link href="~/Content/archirio/assets/css/bootstrap.min.css" rel="stylesheet" />*@
+<!-- animate css -->
+<link href="~/Content/archirio/assets/css/animate.css" rel="stylesheet" />
+<!-- owl.carousel.2.0.0-beta.2.4 css -->
+<link href="~/Content/archirio/assets/css/owl.carousel.css" rel="stylesheet" />
+<!-- font-awesome v4.6.3 css -->
+<link href="~/Content/archirio/assets/css/font-awesome.min.css" rel="stylesheet" />
+<!-- flaticon.css -->
+<link rel="stylesheet" href="assets/css/flaticon.css">
+<!-- magnific-popup.css -->
+<link href="~/Content/archirio/assets/css/magnific-popup.css" rel="stylesheet" />
+<!-- slicknav.min.css -->
+<link href="~/Content/archirio/assets/css/slicknav.min.css" rel="stylesheet" />
+<!-- slicknav.min.css -->
+<link href="~/Content/archirio/assets/css/slick.css" rel="stylesheet" />
+<!-- style css -->
+<link href="~/Content/archirio/assets/css/styles.css" rel="stylesheet" />
+<!-- responsive css -->
+<link href="~/Content/archirio/assets/css/responsive.css" rel="stylesheet" />
+<!--animate css-->
+<link href="~/Content/animate.css" rel="stylesheet" />
+<!-- modernizr css -->
+<script src="~/Content/archirio/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
-<p>Use this area to provide additional information.</p>
+<!-- ablout-area start -->
+<div class="about-page-area ptb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="about-page-wrap">
+                    <h2>Vecindarios Seguros</h2>
+                    <div class="about-page-active next-prev-style">
+                        <div class="about-page-img">
+
+                            <img src="~/Content/imagen/27ac615b-b6ab-48fa-866f-7bf2eaec1d05.jpeg" />
+
+                        </div>
+                        <div class="about-page-img">
+
+                            <img src="~/Content/imagen/Screen-Shot-2018-04-26-at-3.17.28-PM.png" />
+
+                        </div>
+                    </div>
+                    <p>
+                        Con este proyecto se pretende abordar la temática de la seguridad y el bienestar de personas desaparecidas desde
+                        el punto de vista del reconocimiento facial. Para ello, se parte de una base de
+                        datos que contiene imágenes de personas en una lista de personas desaparecidas.
+                        A partir de estas imágenes se pretende identificar a las personas de la base
+                        de datos que se encuentren en dichos lugares públicos.
+                        Como se mencionaba antes, al estar todo conectado, encontrar a estas
+                        personas entre la multitud o incluso entre las redes sociales es más sencillo
+                        que nunca, y en este proyecto se pretende diseñar un sistema de identificación de personas a través de un programa de reconocimiento facial.
+                    </p>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="about-sidebar">
+                    <h3>Vecindarios Seguros</h3>
+                    <ul>
+                        <li><a href="#">Un pariente o amigo esta perdido? Nosotros lo encontraremos!.</a></li>
+                        <li><a href="#">Sube fotos de tu pariente o amigo y lo encontraremos por ti.Nuestra aplicacion realiza un análisis facial de alta precisión y detecta, analiza y compara rostros de fotos tomadas por nuestras camaras de seguridad para tener un reporte exitoso sobre las personas desaparecidas.</a></li>
+                        <li><a href="#">Nuestra aplicacion realiza análisis faciales de alta precisión y capacidades de búsqueda facial que utilizamos para detectar, analizar y comparar rostros para crear un reporte exitoso</a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ablout-area end -->
+<!-- jquery latest version -->
+
+<script src="~/Content/archirio/assets/js/vendor/jquery-2.2.4.min.js"></script>
+<!-- popper.min.js -->
+
+<script src="~/Content/archirio/assets/js/vendor/popper.min.js"></script>
+<!-- bootstrap js -->
+
+<script src="~/Content/archirio/assets/js/bootstrap.min.js"></script>
+<!-- owl.carousel.2.0.0-beta.2.4 css -->
+
+<script src="~/Content/archirio/assets/js/owl.carousel.min.js"></script>
+<!-- slick.min.js -->
+<script src="~/Content/archirio/assets/js/slick.min.js"></script>
+<!-- plugins js -->
+<script src="~/Content/archirio/assets/js/plugins.js"></script>
+
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbeBYsZSDkbIyfUkoIw1Rt38eRQOQQU0o"></script>
+<script>
+    function initialize() {
+        var mapOptions = {
+            zoom: 15,
+            scrollwheel: false,
+            center: new google.maps.LatLng(40.712764, -74.005667),
+            styles: [{
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }]
+            },
+            {
+                "elementType": "labels.icon",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#616161"
+                }]
+            },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#bdbdbd"
+                }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#eeeeee"
+                }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#757575"
+                }]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#e5e5e5"
+                }]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#9e9e9e"
+                }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#ffffff"
+                }]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#757575"
+                }]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#dadada"
+                }]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#616161"
+                }]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#9e9e9e"
+                }]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#e5e5e5"
+                }]
+            },
+            {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#eeeeee"
+                }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#c9c9c9"
+                }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#9e9e9e"
+                }]
+            }
+            ]
+        };
+
+        var map = new google.maps.Map(document.getElementById('googleMap'),
+            mapOptions);
+
+
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            animation: google.maps.Animation.BOUNCE,
+            map: map
+        });
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<!-- main js -->
+
+<script src="~/Content/archirio/assets/js/scripts.js"></script>

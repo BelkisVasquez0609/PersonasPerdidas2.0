@@ -20,14 +20,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Edad)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Estado)
+            @Html.Label("Fecha persona encontrada")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaEncontrado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario.Nombre)
+            @Html.Label("Pariente")
         </th>
         <th></th>
     </tr>
@@ -44,9 +42,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Edad)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.FechaEncontrado)
             </td>
