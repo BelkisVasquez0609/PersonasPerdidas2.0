@@ -4,26 +4,33 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+    <CENTER>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Detalles rol</h2>
+        <hr />
+        <h4>Rol</h4>
+        <hr />
 
-<div>
-    <h4>Rol</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Rol, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) |
+        <div>
 
 
-    @Html.ActionLink("Volver a la lista de roles", "Index", "Rols", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+            <br />
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <br />
 
-</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" style="float:right">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id_Rol, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+            </button>
+            <button type="button" class="btn btn-secondary" style="float:right">
+                @Html.ActionLink("Volver a la lista de roles", "Index", "Rols", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)  |
+
+            </button>
+            <br /> <br /> <br />
+        </div>
+        </CENTER>

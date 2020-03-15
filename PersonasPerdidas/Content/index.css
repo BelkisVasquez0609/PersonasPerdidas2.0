@@ -5,6 +5,13 @@
 }
 
 
+#particles1-js {
+    background:#444;
+    /*width: 100%;
+    background-position: center;
+    background-attachment: contain;
+    background-size: cover;*/
+}
 #particles-js {
     width: 100%;
     background: url('imagen/2maxresdefault.jpg');

@@ -4,13 +4,13 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+    <CENTER>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Borrar Usuario</h2>
+        <hr />
+        <h4>Estas seguro de que quieres borrarlo?</h4>
+        <hr />
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="dl-horizontal">
+        
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -43,17 +43,20 @@
             @Html.DisplayFor(model => model.Rol.Descripcion)
         </dd>
 
-    </dl>
+        </dl>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-
-            @Html.ActionLink("Volver a la lista de usuarios", "Index", "Usuarios", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
-
-        </div>
-    }
-</div>
+            <div class="form-actions no-color">
+                <input type="submit" value="Borrar" class="btn btn-default" /> |
+                <button type="button" class="btn btn-light">
+                    @Html.ActionLink("Volver a la lista de usuarios", "Index", "Usuarios", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+                </button>
+            </div>
+          
+        }
+        </CENTER>
+<br />
+      

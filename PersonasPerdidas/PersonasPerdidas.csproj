@@ -332,6 +332,7 @@
     <Content Include="Content\js\vendor\jquery-1.12.0.min.js" />
     <Content Include="Content\js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
+    <Content Include="Content\login css.css" />
     <Content Include="Content\MiHojaDeEstilo.css" />
     <Content Include="Content\particles.js" />
     <Content Include="Content\style.css" />
@@ -387,11 +388,6 @@
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\blog-single.cshtml" />
-    <None Include="Views\Home\blog.cshtml" />
-    <None Include="Views\Home\portfolio-single.cshtml" />
-    <None Include="Views\Home\portfolio.cshtml" />
-    <None Include="Views\Home\services.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -403,7 +399,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Camaras\Create.cshtml" />
     <Content Include="Views\Camaras\Delete.cshtml" />

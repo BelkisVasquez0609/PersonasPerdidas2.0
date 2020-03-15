@@ -6,32 +6,54 @@
 <br />
 <br />
 
+<CENTER>
+    <!-- Portfolio Section Heading -->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'" >roles</h2>
+    <hr />
+    <button type="button" class="btn btn-light" .text-nowrap style=" color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: Raleway-Regular;
+        font-size:25px;
 
-<h2>ROLES</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+        font-family:'Californian'
+       ">
+        @Html.ActionLink("Crear", "Create", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+    </button>
+    <br /><br />
+    </CENTER>
+<center>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id_Rol, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id_Rol, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id_Rol, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <div class="btn-group" role="group" aria-label="Basic example" >
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-secondary" style="float:right">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id_Rol, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) 
+                        </button>
+                        <button type="button" class="btn btn-secondary" style="float:right">
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Id_Rol, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) 
+                        </button>
+                        <button type="button" class="btn btn-secondary"style="        float: right
+">
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id_Rol, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                        </button>
+                    </td>
+                </tr>
+            </div>
+        }
+
+    </table>
+</center>

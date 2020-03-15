@@ -4,12 +4,16 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>CrearPersonaPerdida</h4>
+<CENTER>
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Reporte personas</h2>
     <hr />
-    <dl class="dl-horizontal">
+    <h4>Reportes</h4>
+    <hr />
+
+
+    <div>
+
+        @*<dl class="dl-horizontal">*@
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -51,11 +55,17 @@
             @Html.DisplayFor(model => model.Usuario.Nombre)
         </dd>
 
-    </dl>
-</div>
-<p>
+        </dl>
+        @*</div>*@
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" style="float:right">
 
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id_CPP, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
-    @Html.ActionLink("Volver a la lista de personas", "Index", "CrearPersonaPerdidas", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id_CPP, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+            </button>
+            <button type="button" class="btn btn-secondary" style="float:right">
 
-</p>
+                @Html.ActionLink("Volver a la lista de personas", "Index", "CrearPersonaPerdidas", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null) |
+            </button>
+            <br /> <br /> <br />
+        </div>
+</CENTER>
