@@ -4,46 +4,62 @@
     ViewBag.Title = "Create";
 }
 
-<CENTER>
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Subir imagen de persona</h2>
-    <hr />
-    <h4>foto</h4>
-    <hr />
-</CENTER>
+    <CENTER>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Subir imagen de persona</h2>
+        <hr />
+      
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-      
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_personaDesaparecida, "id_personaDesaparecida", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("id_personaDesaparecida", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_personaDesaparecida, "", new { @class = "text-danger" })
+
+        <div class=" container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+
+                        @*@Html.LabelFor(model => model.id_personaDesaparecida, "id_personaDesaparecida", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            <br /><br />
+
+                            @Html.DropDownList("id_personaDesaparecida", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.id_personaDesaparecida, "", new { @class = "text-danger" })
+
+
+
+                            <br />
+                            <asp:Image id="Image1" Runat="server" />
+                            <br />
+                            <input type="file" id="FileUpload1" name="ImageLoad" Class="form-control"/>
+                            <br />
+                            <div class="form-group">
+                               <asp:Button ID="btnSubir" runnat="server" contextmenu="Button" class="btn btn-success"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
             </div>
         </div>
-
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Fotos, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.EditorFor(model => model.Fotos, new { htmlAttributes = new { @class = "form-control" } })*@
-                <input type="file" name="ImageLoad" />
+                 <input type="file" name="ImageLoad" />
                 @Html.ValidationMessageFor(model => model.Fotos, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        }
+    </CENTER>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

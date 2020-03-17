@@ -25,6 +25,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             return View("Index");
         }
 
@@ -35,7 +36,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
             ViewBag.Message = "Your application description page.";
-
+            ViewBag.Fecha = DateTime.Now;
             return View();
         }
 
@@ -46,7 +47,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
             ViewBag.Message = "Your contact page.";
-
+            ViewBag.Fecha = DateTime.Now;
             return View();
         }
     }

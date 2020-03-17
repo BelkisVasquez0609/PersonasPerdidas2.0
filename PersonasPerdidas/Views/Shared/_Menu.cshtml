@@ -2,46 +2,46 @@
 {
     @*<ul class="navbar-nav ml-auto">*@
 
-            <li>@Html.ActionLink("Inicio", "Login", "Home", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Nosotros", "About", "Home", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Roles", "Index", "Rols", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Inicio", "Login", "Home", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Nosotros", "About", "Home", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Roles", "Index", "Rols", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
 
 
-            <li>@Html.ActionLink("Config Camaras", "Create", "Camaras", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Reporte P.desaparecidas", "Index", "CrearPersonaPerdidas", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Reporte P.encontradas", "Index", "CrearPersonaPerdidas", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-        @*</ul>*@
-        @*<ul class="nav navbar-nav navbar-right">*@
-            <li>@Html.ActionLink("Perfil", "Edit", "Usuarios", new { rol = 1, id = ViewBag.UsuarioActual, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Cerrar sesión", "CerrarSeccion", "Home")</li>
-        @*</ul>*@
+    <li>@Html.ActionLink("Config Camaras", "Create", "Camaras", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Reporte P.desaparecidas", "Index", "CrearPersonaPerdidas", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, fecha = ViewBag.Fecha }, null)</li>
+    <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Reporte P.encontradas", "PersonasEncontradas", "CrearPersonaPerdidas", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, fecha = ViewBag.Fecha }, null)</li>
+    @*</ul>*@
+    @*<ul class="nav navbar-nav navbar-right">*@
+    <li>@Html.ActionLink("Perfil", "Edit", "Usuarios", new { rol = 1, id = ViewBag.UsuarioActual, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Cerrar sesión", "CerrarSeccion", "Home")</li>
+    @*</ul>*@
 }
 else if (ViewBag.Rol == 2)
 {
-            <li>@Html.ActionLink("Inicio", "Login", "Home", new { rol = 2, id = ViewBag.UsuarioActual, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            <li>@Html.ActionLink("Nosotros", "About", "Home", new { rol = 2, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
-            @*<li>@Html.ActionLink("Socios", "Create", "Socios", new { rol = 2, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>*@
-            <li>@Html.ActionLink("Personas Perdidas", "Create", "CrearPersonaPerdidas", new { rol = 2, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Inicio", "Login", "Home", new { rol = 2, id = ViewBag.UsuarioActual, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Nosotros", "About", "Home", new { rol = 2, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    @*<li>@Html.ActionLink("Socios", "Create", "Socios", new { rol = 2, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>*@
+    <li>@Html.ActionLink("Personas Perdidas", "Create", "CrearPersonaPerdidas", new { rol = 2, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
 
-        
-        
-            @*<li>@Html.ActionLink("Perfil", "Edit", "Usuarios", new { rol = 2, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo  }, null)</li>*@
-            <li>@Html.ActionLink("Cerrar sesión", "CerrarSeccion", "Home")</li>
-        
+
+
+    @*<li>@Html.ActionLink("Perfil", "Edit", "Usuarios", new { rol = 2, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo  }, null)</li>*@
+    <li>@Html.ActionLink("Cerrar sesión", "CerrarSeccion", "Home")</li>
+
 }
 else
 {
-        @*<ul class="nav navbar-nav">*@
-            <li><a>@Html.ActionLink("Inicio", "Login", "Home", new { rol = 0, Usuario = 0, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</a></li>
-            <li><a>@Html.ActionLink("Nosotros", "About", "Home", new { rol = 0, Usuario = 0, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</a></li>
-            <li><a>@Html.ActionLink("Contactanos", "Contact", "Home", new { rol = 0, Usuario = 0, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</a></li>
-        @*</ul>*@
+    @*<ul class="nav navbar-nav">*@
+    <li><a>@Html.ActionLink("Inicio", "Login", "Home", new { rol = 0, Usuario = 0, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</a></li>
+    <li><a>@Html.ActionLink("Nosotros", "About", "Home", new { rol = 0, Usuario = 0, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</a></li>
+    <li><a>@Html.ActionLink("Contactanos", "Contact", "Home", new { rol = 0, Usuario = 0, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</a></li>
+       @*</ul>*@
 
- 
-        <li><a>@Html.ActionLink("Registrarse", "Registrarse", "Usuarios")</a></li>
-        <li><a>@Html.ActionLink("Iniciar sesión", "Login", "Usuarios")</a></li>
-    
+
+    <li><a>@Html.ActionLink("Registrarse", "Registrarse", "Usuarios")</a></li>
+    <li><a>@Html.ActionLink("Iniciar sesión", "Login", "Usuarios")</a></li>
+
 
 }
 

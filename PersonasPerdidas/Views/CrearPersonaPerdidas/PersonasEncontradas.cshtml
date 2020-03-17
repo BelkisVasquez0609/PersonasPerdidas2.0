@@ -1,0 +1,77 @@
+﻿@model IEnumerable<PersonasPerdidas.Models.CrearPersonaPerdida>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <br />
+    <CENTER>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Reporte personas Encontradas</h2>
+
+        <hr />
+        <h3>Busca reportes por fecha</h3>
+
+
+        <div class="form-inline">
+            @Html.Label("Intervalo de fecha de reporte")
+            @Html.TextBox("fechaIni", "", new { @class = "form-control"@*, @type = "date"*@ })
+            @Html.TextBox("fechaFin", "", new { @class = "form-control"@*, @type = "date" }*@)
+
+
+            <button type="button" class="btn btn-light" .text-nowrap style=" color: white; text-decoration: none; font-weight: bold; font-family: Raleway-Regular;font-size:15px; font-family:'Californian'">
+
+                @Html.ActionLink("Buscar", "PersonasEncontradas", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, Fecha = ViewBag.fecha })
+            </button>
+        </div>
+
+        @*      @Html.TextBox("Fecha", (DateTime)ViewBag.Parameters.Name, new {@type = "date" })*@
+
+        <br />
+        <br />
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha_desaparicion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
+
+                <th>
+                    @Html.Label("Fecha persona encontrada")
+                </th>
+                <th>
+                    @Html.Label("Pariente")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_desaparicion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Edad)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaEncontrado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+
+        </table>
+

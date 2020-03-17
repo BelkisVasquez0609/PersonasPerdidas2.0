@@ -5,22 +5,25 @@
 }
 
 <h2>Details</h2>
+@using (Html.BeginForm("Details", "Camaras", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>Camara</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.foto)
+            </dt>
 
-<div>
-    <h4>Camara</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.foto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_foto }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id_foto }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

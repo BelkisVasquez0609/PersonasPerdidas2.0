@@ -21,7 +21,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             var usuarios = db.Usuario.Include(u => u.Rol);
             return View(usuarios.ToList());
         }
@@ -30,8 +30,34 @@ namespace PersonasPerdidas.Controllers
 
             return View();
         }
-        public ActionResult Registrarse()
+        public ActionResult Registrarse(int rol = 0, int usuario = 0, string NombreUsuario = "", string Correo= "")
         {
+            ViewBag.Rol = 2;
+            ViewBag.UsuarioActual = usuario;
+            ViewBag.NombreUsuario = NombreUsuario;
+            ViewBag.correo = Correo;
+            ViewBag.id_rol = new SelectList(db.Rol.OrderByDescending(s => s.Id_Rol), "Id_Rol", "Descripcion");
+            ViewBag.Fecha = DateTime.Now;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Registrarse([Bind(Include = "Id_Usuario,Nombre,Correo,Contrasena,id_rol")] Usuario usuarios, int rol = 2, int usuario = 0, string NombreUsuario = "", string Correo = "")
+        {
+            ViewBag.Rol = rol;
+            ViewBag.UsuarioActual = usuario;
+            ViewBag.NombreUsuario = NombreUsuario;
+            ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                db.Usuario.Add(usuarios);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Usuarios", new { rol, usuario, NombreUsuario, Correo });
+            }
+          
+
+            ViewBag.id_rol = new SelectList(db.Rol, "Id_Rol", "Descripcion", usuarios.id_rol);
 
             return View();
         }
@@ -86,6 +112,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -105,7 +132,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             ViewBag.id_rol = new SelectList(db.Rol, "Id_Rol", "Descripcion");
             return View();
         }
@@ -121,7 +148,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Usuario.Add(usuarios);
@@ -142,7 +169,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -167,7 +194,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(usuarios).State = EntityState.Modified;
@@ -185,7 +212,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -207,7 +234,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             Usuario usuarios = db.Usuario.Find(id);
             db.Usuario.Remove(usuarios);
             db.SaveChanges();

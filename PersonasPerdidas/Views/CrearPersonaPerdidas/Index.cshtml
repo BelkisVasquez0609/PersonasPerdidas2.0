@@ -7,7 +7,8 @@
     <CENTER>
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Reporte personas</h2>
         <hr />
-
+        <input type="date">
+        @*@Html.TextBoxFor(model => model.Fecha_desaparicion, new { htmlAttributes = new { @class = "form-control" }, @type = "date" })*@
 
         <button type="button" class="btn btn-light" .text-nowrap style=" color: white;
         text-decoration: none;
@@ -15,69 +16,69 @@
         font-family: Raleway-Regular;
         font-size:25px;
 
-        font-family:'Californian'
-       ">
+        font-family:'Californian'">
+
             @Html.ActionLink("Crear nuevo", "Create", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
         </button>
         <br />
         <br />
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nombre)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Fecha_desaparicion)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Edad)
-                    </th>
-
-                    <th>
-                        @Html.Label("Fecha persona encontrada")
-                    </th>
-                    <th>
-                        @Html.Label("Pariente")
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fecha_desaparicion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Edad)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha_desaparicion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaEncontrado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.Nombre)
-                </td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                @*<th>
+                    @Html.Label("Fecha persona encontrada")
+                </th>*@
+                <th>
+                    @Html.Label("Pariente")
+                </th>
+                <th></th>
+            </tr>
 
-                        <button type="button" class="btn btn-secondary" style="float:right">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_desaparicion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Edad)
+                    </td>
 
-                            @Html.ActionLink("Editar", "Edit", new { id = item.Id_CPP, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) 
-                        </button>
-                        <button type="button" class="btn btn-secondary" style="float:right">
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.FechaEncontrado)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
 
-                            @Html.ActionLink("Detalles", "Details", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }) 
-                        </button>
-                        <button type="button" class="btn btn-secondary" style="        float: right">
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-                        </button>
-                    </div>
-                </td>
-</tr>
-                }
+                            <button type="button" class="btn btn-secondary" style="float:right">
 
-            </table>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id_CPP, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                            </button>
+                            <button type="button" class="btn btn-secondary" style="float:right">
+
+                                @Html.ActionLink("Detalles", "Details", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                            </button>
+                            <button type="button" class="btn btn-secondary" style="        float: right">
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>

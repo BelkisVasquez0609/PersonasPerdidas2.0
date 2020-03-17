@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using PersonasPerdidas.Models;
 
@@ -21,7 +25,17 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             return View(db.Camara.ToList());
+        }
+        public ActionResult EncontramosTuPariente(/*int rol, int usuario, string NombreUsuario, string Correo*/)
+        {
+            //ViewBag.Rol = rol;
+            //ViewBag.UsuarioActual = usuario;
+            //ViewBag.NombreUsuario = NombreUsuario;
+            //ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
+            return View();
         }
 
         // GET: Camaras/Details/5
@@ -31,7 +45,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -51,7 +65,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             return View();
         }
 
@@ -62,10 +76,41 @@ namespace PersonasPerdidas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id_foto,foto")] Camara camara, int rol, int usuario, string NombreUsuario, string Correo)
         {
+
             ViewBag.Rol = rol;
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
+
+            //nos va a representar un objeto y nos permite administrar lo 
+            //que es un archivo como tal,es unna clase base que nos permite proporcionar 
+            //ese acceso a los archivos que hemos cargado desde el navegador
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            if (FileBase.ContentLength == 0)
+            {
+                ModelState.AddModelError("Foto", "El campo necesario seleccionar una imagen.");
+
+            }
+            else
+            {
+                if (FileBase.FileName.EndsWith(".jpg"))
+                {
+                    //ahora esta clase nos permite administrar la imagen
+
+                    System.Web.Helpers.WebImage image = new WebImage(FileBase.InputStream);
+
+                    camara.foto = image.GetBytes(); //aqui se obtienen los bytes de nuestra imagen
+
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Foto", "El sistema solo acepta un formato.JPG");
+                }
+
+            }
 
             if (ModelState.IsValid)
             {
@@ -85,7 +130,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,7 +154,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(camara).State = EntityState.Modified;
@@ -126,7 +171,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -148,7 +193,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             Camara camara = db.Camara.Find(id);
             db.Camara.Remove(camara);
             db.SaveChanges();
@@ -162,6 +207,22 @@ namespace PersonasPerdidas.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        //nuevo metodo
+        public ActionResult getImage(int id)
+        {
+            Camara camara = db.Camara.Find(id);
+            byte[] byteImage = camara.foto;
+
+            System.IO.MemoryStream memoryStream = new System.IO.MemoryStream(byteImage);
+
+            Image image = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+            return File(memoryStream, "image/jpg");
         }
     }
 }

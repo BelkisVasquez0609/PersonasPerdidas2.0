@@ -15,17 +15,31 @@ namespace PersonasPerdidas.Controllers
         private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: CrearPersonaPerdidas
-        public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo)
+        public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo, DateTime fecha)
         {
             ViewBag.Rol = rol;
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
-            var crearPersonaPerdida = db.CrearPersonaPerdida.Include(c => c.Usuario);
+            ViewBag.Fecha = fecha;
+            var crearPersonaPerdida = db.CrearPersonaPerdida.Where(c => c.Estado == false);
             return View(crearPersonaPerdida.ToList());
         }
-
+        public ActionResult PersonasEncontradas(int rol, int usuario, string NombreUsuario, string Correo,DateTime fecha)
+        {
+            ViewBag.Rol = rol;
+            ViewBag.UsuarioActual = usuario;
+            ViewBag.NombreUsuario = NombreUsuario;
+            ViewBag.correo = Correo;
+            ViewBag.Fecha = fecha;
+            var crearPersonaPerdida = db.CrearPersonaPerdida.Where(k => k.FechaEncontrado == fecha);
+            return View(crearPersonaPerdida.ToList());
+        }
+     public ActionResult EncontramosTuPariente ()
+        {
+          
+            return View();
+        }
         // GET: CrearPersonaPerdidas/Details/5
         public ActionResult Details(int? id, int rol, int usuario, string NombreUsuario, string Correo)
         {
@@ -33,6 +47,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -52,8 +67,8 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
-            ViewBag.Pariente = new SelectList(db.Usuario, "Id_Usuario", "Nombre");
+            ViewBag.Fecha = DateTime.Now;
+            ViewBag.Pariente = new SelectList(db.Usuario , "Id_Usuario", "Nombre");
             return View();
         }
 
@@ -68,7 +83,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.CrearPersonaPerdida.Add(crearPersonaPerdida);
@@ -87,7 +102,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,6 +127,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(crearPersonaPerdida).State = EntityState.Modified;
@@ -129,7 +145,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -151,7 +167,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             CrearPersonaPerdida crearPersonaPerdida = db.CrearPersonaPerdida.Find(id);
             db.CrearPersonaPerdida.Remove(crearPersonaPerdida);
             db.SaveChanges();

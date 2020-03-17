@@ -21,6 +21,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             return View(db.Rol.ToList());
         }
 
@@ -31,6 +32,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -50,6 +52,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
             return View();
         }
 
@@ -64,6 +67,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
 
             if (ModelState.IsValid)
             {
@@ -82,7 +86,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -106,6 +110,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
 
             if (ModelState.IsValid)
             {
@@ -123,6 +128,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
 
             if (id == null)
             {
@@ -145,6 +151,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
 
             Rol rols = db.Rol.Find(id);
             db.Rol.Remove(rols);

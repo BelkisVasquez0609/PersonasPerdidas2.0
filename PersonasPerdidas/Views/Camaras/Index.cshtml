@@ -4,30 +4,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <center>
+        <h2>Fotos tomadas por la camara</h2>
+        <hr />
+        @using (Html.BeginForm("Details", "Camaras", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <button type="button" class="btn btn-light" .text-nowrap style=" color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: Raleway-Regular;
+        font-size:25px;
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.foto)
-        </th>
-        <th></th>
-    </tr>
+        font-family:'Californian'">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.foto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_foto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_foto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_foto })
-        </td>
-    </tr>
-}
+                @Html.ActionLink("Tomar nueva foto", "Create", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+            </button>
+            <br />
 
-</table>
+            <table class="table">
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                       
+                                <img width="200" src="@Url.Action("getImage", "Camaras", new {id=item.id_foto })" />
+                          
+                            @*@Html.DisplayFor(modelItem => item.foto)*@
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary" style="        float: right">
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.id_foto, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+
+    </center>

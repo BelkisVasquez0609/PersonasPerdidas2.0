@@ -29,7 +29,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Fecha_desaparicion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Fecha_desaparicion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Fecha_desaparicion, new { htmlAttributes = new { @class = "form-control" },  @type = "date" })
                 @Html.ValidationMessageFor(model => model.Fecha_desaparicion, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,9 +43,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Pariente, "Pariente", htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Pariente, "Pariente", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.DropDownList("Pariente", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Pariente", null, htmlAttributes: new { @class = "form-control",  @style="display:none" })
                 @Html.ValidationMessageFor(model => model.Pariente, "", new { @class = "text-danger" })
             </div>
         </div>

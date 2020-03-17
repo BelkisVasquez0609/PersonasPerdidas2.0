@@ -3,31 +3,44 @@
 @{
     ViewBag.Title = "Delete";
 }
+    <center>
+        <h2>Borrar foto</h2>
+        <hr />
+        <h3>Estas seguro de que quieres eliminar esta foto?</h3>
+        <hr />
+        @using (Html.BeginForm("Details", "Camaras", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+    <div>
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Camara</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
+        <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>
 
-    </dl>
+            <dd>
+                <center>
+                    <img width="400" src="@Url.Action("getImage", "Camaras", new {id=Model.id_foto })" />
+                </center>
+            </dd>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <br /><br />
+            <div class="btn-group" role="group" aria-label="Basic example">
+
+
+                <input type="submit" value="Boton" class="btn btn-default" /> |
+                <button type="button" class="btn btn-secondary" style="float:right">
+
+                        @Html.ActionLink("Volver ", "Index", "Camaras", new { rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)
+                    </button>
+                    <br /> <br /> <br />
+                </div>
+
+                }
+            </div>
+        }
+</center>

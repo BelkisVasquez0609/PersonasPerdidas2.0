@@ -25,7 +25,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             var fotosPersona = db.FotosPersona.Include(f => f.CrearPersonaPerdida);
             return View(fotosPersona.ToList());
         }
@@ -37,7 +37,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             FotosPersona fotosPersona = db.FotosPersona.Find(id);
             if (id == null)
             {
@@ -60,7 +60,8 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-            ViewBag.id_personaDesaparecida = new SelectList(db.CrearPersonaPerdida, "Id_CPP", "Nombre");
+            ViewBag.Fecha = DateTime.Now;
+            ViewBag.id_personaDesaparecida = new SelectList(db.CrearPersonaPerdida.Where(s => s.Pariente == usuario), "Id_CPP", "Nombre");
             return View();
         }
 
@@ -75,7 +76,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             HttpPostedFileBase FileBase = Request.Files[0];//leeme el archivo en la posicion 0
                                                            //HttpFileCollectionBase collectionBase = Request.Files;
                                                            //el request le permite al servidor o al asp.net le permite leer los valores del http
@@ -111,7 +112,7 @@ namespace PersonasPerdidas.Controllers
 
             }
 
-            ViewBag.id_personaDesaparecida = new SelectList(db.CrearPersonaPerdida, "Id_CPP", "Nombre", fotosPersona.id_personaDesaparecida);
+            ViewBag.id_personaDesaparecida = new SelectList(db.CrearPersonaPerdida.Where(s => s.Pariente == usuario), "Id_CPP", "Nombre", fotosPersona.id_personaDesaparecida);
             return View(fotosPersona);
         }
 
@@ -122,7 +123,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -147,7 +148,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             byte[] imagenActual = null;
             HttpPostedFileBase FileBase = Request.Files[0];
             if (FileBase == null)
@@ -178,7 +179,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -200,7 +201,7 @@ namespace PersonasPerdidas.Controllers
             ViewBag.UsuarioActual = usuario;
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
-
+            ViewBag.Fecha = DateTime.Now;
             FotosPersona fotosPersona = db.FotosPersona.Find(id);
             db.FotosPersona.Remove(fotosPersona);
             db.SaveChanges();
