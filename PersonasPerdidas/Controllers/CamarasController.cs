@@ -116,6 +116,17 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Camara.Add(camara);
                 db.SaveChanges();
+                Ccorreo objcorreo = new Ccorreo("belkisvasquez0609@gmail.com", "Hemos encontrado tu pariente!", "Esta es una prueba de envio de correo electronico desde ASP.Net c#");
+                if (objcorreo.Estado)
+                {
+                    Response.Write("el correo se envio con exito...");
+
+                }
+                else
+                {
+                    Response.Write("Error al enviar el correo electronico...<br>" + objcorreo.mensaje_error);
+
+                }
                 return RedirectToAction("Index", "Camaras", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
 
             }
