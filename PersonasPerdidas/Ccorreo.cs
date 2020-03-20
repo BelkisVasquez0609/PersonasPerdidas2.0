@@ -44,7 +44,7 @@ namespace PersonasPerdidas
             correo.IsBodyHtml = false;
             MailAddress Bk = new MailAddress("belkisvasquez@outlook.es", "Belkis Y. Vasquez peña", System.Text.Encoding.UTF8);
             correo.CC.Add(Bk);
-            MailAddress Gl = new MailAddress("20186504@itla.edu.do", "Gerlen E. Aquino Zorrilla", System.Text.Encoding.UTF8);
+            MailAddress Gl = new MailAddress("gerlenzorrilla0307@gmail.com", "Gerlen E. Aquino Zorrilla", System.Text.Encoding.UTF8);
             correo.CC.Add(Gl);
 
 

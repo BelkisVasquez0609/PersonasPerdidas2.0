@@ -28,12 +28,8 @@ namespace PersonasPerdidas.Controllers
             ViewBag.Fecha = DateTime.Now;
             return View(db.Camara.ToList());
         }
-        public ActionResult EncontramosTuPariente(/*int rol, int usuario, string NombreUsuario, string Correo*/)
+        public ActionResult EncontramosTuPariente()
         {
-            //ViewBag.Rol = rol;
-            //ViewBag.UsuarioActual = usuario;
-            //ViewBag.NombreUsuario = NombreUsuario;
-            //ViewBag.correo = Correo;
             ViewBag.Fecha = DateTime.Now;
             return View();
         }
@@ -110,6 +106,7 @@ namespace PersonasPerdidas.Controllers
                     ModelState.AddModelError("Foto", "El sistema solo acepta un formato.JPG");
                 }
 
+               
             }
 
             if (ModelState.IsValid)
@@ -127,7 +124,7 @@ namespace PersonasPerdidas.Controllers
                     Response.Write("Error al enviar el correo electronico...<br>" + objcorreo.mensaje_error);
 
                 }
-                return RedirectToAction("Index", "Camaras", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
+                return RedirectToAction("FotoEnviadaCamara", "Camaras", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
 
             }
 
@@ -210,7 +207,16 @@ namespace PersonasPerdidas.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Camaras", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
         }
-
+        public ActionResult FotoEnviadaCamara( int rol, int usuario, string NombreUsuario, string Correo)
+        {
+            ViewBag.Rol = rol;
+            ViewBag.UsuarioActual = usuario;
+            ViewBag.NombreUsuario = NombreUsuario;
+            ViewBag.correo = Correo;
+            ViewBag.Fecha = DateTime.Now;
+           
+            return View(new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

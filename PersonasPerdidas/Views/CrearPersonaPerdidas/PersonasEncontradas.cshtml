@@ -12,9 +12,10 @@
 
 
         <div class="form-inline">
+
             @Html.Label("Intervalo de fecha de reporte")
-            @Html.TextBox("fechaIni", "", new { @class = "form-control"@*, @type = "date"*@ })
-            @Html.TextBox("fechaFin", "", new { @class = "form-control"@*, @type = "date" }*@)
+        @Html.TextBox("fechaIni", "", new { @class = "form-control", @type = "date" })
+        @Html.TextBox("fechaFin", "", new { @class = "form-control", @type = "date" })
 
 
             <button type="button" class="btn btn-light" .text-nowrap style=" color: white; text-decoration: none; font-weight: bold; font-family: Raleway-Regular;font-size:15px; font-family:'Californian'">

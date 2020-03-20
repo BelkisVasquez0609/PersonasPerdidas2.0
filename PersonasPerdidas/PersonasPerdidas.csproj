@@ -388,6 +388,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\CrearPersonaPerdidas\PersonasEncontradas.cshtml" />
     <Content Include="Views\Camaras\EncontramosTuPariente.cshtml" />
+    <Content Include="Views\Camaras\FotoEnviadaCamara.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
