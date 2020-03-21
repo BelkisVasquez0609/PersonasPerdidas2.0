@@ -4,81 +4,95 @@
     ViewBag.Title = "Index";
 }
 
+@using (Html.BeginForm("Index", "CrearPersonaPerdidas", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, Fecha = ViewBag.fecha }, FormMethod.Post))
+{
+    <br />
     <CENTER>
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Reporte personas</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-weight: bold;font-family:'Californian'">Reporte personas Encontradas</h2>
+
         <hr />
-        <input type="date">
-        @*@Html.TextBoxFor(model => model.Fecha_desaparicion, new { htmlAttributes = new { @class = "form-control" }, @type = "date" })*@
+        <h3>Busca reportes por fecha de desaparicion</h3>
 
-        <button type="button" class="btn btn-light" .text-nowrap style=" color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-family: Raleway-Regular;
-        font-size:25px;
 
-        font-family:'Californian'">
+        <div class="form-inline">
 
-            @Html.ActionLink("Crear nuevo", "Create", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-        </button>
-        <br />
-        <br />
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Fecha_desaparicion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Edad)
-                </th>
+            @Html.Label("Intervalo de fecha de reporte")
 
-                @*<th>
-                    @Html.Label("Fecha persona encontrada")
-                </th>*@
-                <th>
-                    @Html.Label("Pariente")
-                </th>
-                <th></th>
-            </tr>
+            @Html.TextBox("fecha", "", new { @class = "date-picker", @type = "date" })
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fecha_desaparicion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Edad)
-                    </td>
+            <button type="submit" class="btn btn-success ">
+                Buscar
+            </button>
 
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.FechaEncontrado)
-                    </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Usuario.Nombre)
-                    </td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
+        </div>
+   
+    </CENTER>
 
-                            <button type="button" class="btn btn-secondary" style="float:right">
+    @*<button type="button" class="btn btn-light" .text-nowrap style=" color: white; text-decoration: none; font-weight: bold; font-family: Raleway-Regular;font-size:15px; font-family:'Californian'">
 
-                                @Html.ActionLink("Editar", "Edit", new { id = item.Id_CPP, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-                            </button>
-                            <button type="button" class="btn btn-secondary" style="float:right">
+            @Html.ActionLink("Buscar", "PersonasEncontradas", new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, Fecha = ViewBag.fecha })
+        </button>*@
 
-                                @Html.ActionLink("Detalles", "Details", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-                            </button>
-                            <button type="button" class="btn btn-secondary" style="        float: right">
-                                @Html.ActionLink("Borrar", "Delete", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            }
+}
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_desaparicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
 
-        </table>
+        @*<th>
+                @Html.Label("Fecha persona encontrada")
+            </th>*@
+        <th>
+            @Html.Label("Pariente")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_desaparicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.FechaEncontrado)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+            </td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <button type="button" class="btn btn-secondary" style="float:right">
+
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id_CPP, rol = ViewBag.Rol, usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                    </button>
+                    <button type="button" class="btn btn-secondary" style="float:right">
+
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                    </button>
+                    <button type="button" class="btn btn-secondary" style="        float: right">
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.Id_CPP, rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo })
+                    </button>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

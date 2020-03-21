@@ -4,12 +4,13 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <CENTER>
     <br /><br />
     <h2 style="font-weight:bold">HEMOS ENCONTRADO A LA PERSONA QUE ESTAS BUSCANDO </h2>
     <hr />
 </CENTER>
-@using (Html.BeginForm("EncontramosTuPariente", "Camaras"@*, new { rol = ViewBag.Rol, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }*@, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ParienteEncontrado", "Camaras", new { id = ViewBag.id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 @Html.AntiForgeryToken()
 <div>
@@ -41,46 +42,46 @@
                         </div>
                     </center>
                     <!--NOMBRE,ENCONTRADO EN ...HORA,ETC-->
-                 
-                        <div class="form-group">
-                            <div class="container">
+
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="form-group">
+                                @Html.Label("yazmin")
+                                <div class="col-md-5">
+                                    @Html.Label("Nombre:")
+                                </div>
+
+
                                 <div class="form-group">
-                                    @Html.Label("yazmin")
+                                    @Html.Label("Instituto tecnologico de las americas")
                                     <div class="col-md-5">
-                                        @Html.Label("Nombre:")
+                                        @Html.Label("Encontrado en:")
                                     </div>
-
-
-                                    <div class="form-group">
-                                        @Html.Label("Instituto tecnologico de las americas")
-                                        <div class="col-md-5">
-                                            @Html.Label("Encontrado en:")
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("20:00")
+                                    <div class="col-md-5">
+                                        @Html.Label("Hora")
                                     </div>
-                                    <div class="form-group">
-                                        @Html.Label("20:00")
-                                        <div class="col-md-5">
-                                            @Html.Label("Hora")
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="date">
-                                        @*@Html.TextBox("fechaFin", "", new { @class = "form-control", @type = "date" })*@
-                                        <div class="col-md-5">
-                                            @Html.Label("Fecha encontrado")
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date">
+                                    @*@Html.TextBox("fechaFin", "", new { @class = "form-control", @type = "date" })*@
+                                    <div class="col-md-5">
+                                        @Html.Label("Fecha encontrado")
                                     </div>
                                 </div>
                             </div>
-                            <center>
-                                <h3 style="font-weight:bold"> Esta es la persona que estas buscando?</h3>
-                                <div class="form-inline">
-                                    <button class="btn btn-success">SI</button>
-                                    <button class="btn btn-danger">NO</button>
-                                </div>
-                            </center>
-                            <br />
                         </div>
+                        <center>
+                            <h3 style="font-weight:bold"> Esta es la persona que estas buscando?</h3>
+                            <div class="form-inline">
+                                <button class="btn btn-success">SI</button>
+                                <button class="btn btn-danger">NO</button>
+                            </div>
+                        </center>
+                        <br />
+                    </div>
 
                 </ItemTemplate>
             </asp:Repeater>
@@ -91,4 +92,7 @@
 </div>
 
 }
- 
+
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>

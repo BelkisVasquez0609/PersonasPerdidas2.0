@@ -30,6 +30,17 @@ namespace PersonasPerdidas.Controllers
             return View(fotosPersona.ToList());
         }
 
+        public ActionResult ListoEstePendiente(int rol, int usuario, string NombreUsuario, string Correo)
+        {
+            ViewBag.Rol = rol;
+            ViewBag.UsuarioActual = usuario;
+            ViewBag.nombre = NombreUsuario;
+            ViewBag.correo = Correo;
+
+            return View();
+        }
+
+
         // GET: FotosPersonas/Details/5
         public ActionResult DetalleFotos(int? id, int rol, int usuario, string NombreUsuario, string Correo)
         {
@@ -77,13 +88,11 @@ namespace PersonasPerdidas.Controllers
             ViewBag.nombre = NombreUsuario;
             ViewBag.correo = Correo;
             ViewBag.Fecha = DateTime.Now;
-            HttpPostedFileBase FileBase = Request.Files[0];//leeme el archivo en la posicion 0
-                                                           //HttpFileCollectionBase collectionBase = Request.Files;
-                                                           //el request le permite al servidor o al asp.net le permite leer los valores del http
-                                                           //filebase nos proporciona acceso al archivo
+            HttpPostedFileBase FileBase = Request.Files[0];
+
             if (FileBase.ContentLength == 0)
             {
-                ModelState.AddModelError("Fotos", "El campo necesario seleccionar una imagen.");
+                ModelState.AddModelError("Foto", "El campo necesario seleccionar una imagen.");
 
             }
             else
@@ -100,15 +109,16 @@ namespace PersonasPerdidas.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Fotos", "El sistema solo acepta un formato.JPG");
+                    ModelState.AddModelError("Foto", "El sistema solo acepta un formato.JPG");
                 }
+
 
             }
             if (ModelState.IsValid)
             {
                 db.FotosPersona.Add(fotosPersona);
                 db.SaveChanges();
-                return RedirectToAction("Index", "CrearPersonasPerdidas", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
+                return RedirectToAction("ListoEstePendiente", "FotosPersonas", new { rol = rol, usuario = usuario, NombreUsuario = NombreUsuario, Correo = Correo });
 
             }
 
@@ -231,5 +241,6 @@ namespace PersonasPerdidas.Controllers
 
             return File(memoryStream, "image/jpg");
         }
+
     }
 }

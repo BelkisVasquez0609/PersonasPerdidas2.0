@@ -7,7 +7,7 @@
     <li>@Html.ActionLink("Roles", "Index", "Rols", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
 
 
-    <li>@Html.ActionLink("Config Camaras", "Create", "Camaras", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
+    <li>@Html.ActionLink("Config Camaras", "Create", "Camaras", new { idpariente = 0, correousuario = "", rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
     <li>@Html.ActionLink("Reporte P.desaparecidas", "Index", "CrearPersonaPerdidas", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, fecha = ViewBag.Fecha }, null)</li>
     <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo }, null)</li>
     <li>@Html.ActionLink("Reporte P.encontradas", "PersonasEncontradas", "CrearPersonaPerdidas", new { rol = 1, Usuario = ViewBag.UsuarioActual, NombreUsuario = ViewBag.NombreUsuario, Correo = ViewBag.Correo, fecha = ViewBag.Fecha }, null)</li>

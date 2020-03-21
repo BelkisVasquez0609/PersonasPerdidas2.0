@@ -375,6 +375,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\VencindarioSeguro - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -389,6 +390,7 @@
     <Content Include="Views\CrearPersonaPerdidas\PersonasEncontradas.cshtml" />
     <Content Include="Views\Camaras\EncontramosTuPariente.cshtml" />
     <Content Include="Views\Camaras\FotoEnviadaCamara.cshtml" />
+    <Content Include="Views\FotosPersonas\ListoEstePendiente.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />

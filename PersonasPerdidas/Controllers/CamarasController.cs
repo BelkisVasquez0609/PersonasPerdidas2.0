@@ -28,10 +28,25 @@ namespace PersonasPerdidas.Controllers
             ViewBag.Fecha = DateTime.Now;
             return View(db.Camara.ToList());
         }
-        public ActionResult EncontramosTuPariente()
+        public ActionResult EncontramosTuPariente(int id = 0)
+        {
+            ViewBag.id = id;
+
+            return View();
+        }
+        public ActionResult ParienteEncontrado(int id)
         {
             ViewBag.Fecha = DateTime.Now;
-            return View();
+            var query = (from a in db.CrearPersonaPerdida
+                         where a.Id_CPP == id
+                         select a).FirstOrDefault();
+
+            query.FechaEncontrado = DateTime.Now;
+            query.Estado = true;
+
+            db.SaveChanges();
+
+            return View("EncontramosTuPariente");
         }
 
         // GET: Camaras/Details/5
@@ -55,7 +70,7 @@ namespace PersonasPerdidas.Controllers
         }
 
         // GET: Camaras/Create
-        public ActionResult Create(int rol, int usuario, string NombreUsuario, string Correo)
+        public ActionResult Create(int idpariente, string correousuario,int rol, int usuario, string NombreUsuario, string Correo)
         {
             ViewBag.Rol = rol;
             ViewBag.UsuarioActual = usuario;
@@ -70,7 +85,7 @@ namespace PersonasPerdidas.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_foto,foto")] Camara camara, int rol, int usuario, string NombreUsuario, string Correo)
+        public ActionResult Create([Bind(Include = "id_foto,foto")] Camara camara, int idpariente = 0, int rol = 0, int usuario = 0, string NombreUsuario = "", string Correo = "")
         {
 
             ViewBag.Rol = rol;
@@ -113,7 +128,8 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Camara.Add(camara);
                 db.SaveChanges();
-                Ccorreo objcorreo = new Ccorreo("belkisvasquez0609@gmail.com", "Hemos encontrado tu pariente!", "Esta es una prueba de envio de correo electronico desde ASP.Net c#");
+                idpariente = 2007;
+                Ccorreo objcorreo = new Ccorreo(Correo, "Hemos encontrado tu pariente!", "Hola! hemos encontrado tu pariente, entra a este link y confirmanos :"+ "https://vencindarioseguro.azurewebsites.net/Camaras/EncontramosTuPariente/" + idpariente);
                 if (objcorreo.Estado)
                 {
                     Response.Write("el correo se envio con exito...");

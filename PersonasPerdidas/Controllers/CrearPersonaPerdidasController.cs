@@ -15,27 +15,38 @@ namespace PersonasPerdidas.Controllers
         private VisualRekognitionComparisonEntities2 db = new VisualRekognitionComparisonEntities2();
 
         // GET: CrearPersonaPerdidas
-        public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo, DateTime fecha)
-        {
-            ViewBag.Rol = rol;
-            ViewBag.UsuarioActual = usuario;
-            ViewBag.NombreUsuario = NombreUsuario;
-            ViewBag.correo = Correo;
-            ViewBag.Fecha = fecha;
-            var crearPersonaPerdida = db.CrearPersonaPerdida.Where(c => c.Estado == false);
-            return View(crearPersonaPerdida.ToList());
-        }
+        //public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo, DateTime fecha)
+        //{
+        //    ViewBag.Rol = rol;
+        //    ViewBag.UsuarioActual = usuario;
+        //    ViewBag.NombreUsuario = NombreUsuario;
+        //    ViewBag.correo = Correo;
+        //    ViewBag.Fecha = fecha;
+        //    var crearPersonaPerdida = db.CrearPersonaPerdida.Where(c => c.Estado == false);
+        //    return View(crearPersonaPerdida.ToList());
+        //}
         public ActionResult PersonasEncontradas(int rol, int usuario, string NombreUsuario, string Correo,DateTime fecha)
         {
             ViewBag.Rol = rol;
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;
-            ViewBag.Fecha = fecha;
+            ViewBag.fecha = fecha;
             var crearPersonaPerdida = db.CrearPersonaPerdida.Where(k => k.FechaEncontrado == fecha);
             return View(crearPersonaPerdida.ToList());
         }
-     public ActionResult EncontramosTuPariente ()
+
+        public ActionResult Index(int rol, int usuario, string NombreUsuario, string Correo, DateTime fecha)
+        {
+            ViewBag.Rol = rol;
+            ViewBag.UsuarioActual = usuario;
+            ViewBag.NombreUsuario = NombreUsuario;
+            ViewBag.correo = Correo;
+            ViewBag.fecha = fecha;
+            var crearPersonaPerdida = db.CrearPersonaPerdida.Where(k => k.Fecha_desaparicion == fecha);
+            return View(crearPersonaPerdida.ToList());
+        }
+        public ActionResult EncontramosTuPariente ()
         {
           
             return View();
