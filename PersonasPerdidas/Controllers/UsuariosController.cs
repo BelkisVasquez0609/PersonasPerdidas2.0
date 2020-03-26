@@ -32,7 +32,7 @@ namespace PersonasPerdidas.Controllers
         }
         public ActionResult Registrarse(int rol = 0, int usuario = 0, string NombreUsuario = "", string Correo= "")
         {
-            ViewBag.Rol = 2;
+            ViewBag.Rol = 0;
             ViewBag.UsuarioActual = usuario;
             ViewBag.NombreUsuario = NombreUsuario;
             ViewBag.correo = Correo;

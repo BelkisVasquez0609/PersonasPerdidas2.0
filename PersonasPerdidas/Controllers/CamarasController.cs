@@ -128,7 +128,7 @@ namespace PersonasPerdidas.Controllers
             {
                 db.Camara.Add(camara);
                 db.SaveChanges();
-                idpariente = 2007;
+                idpariente = 2013;
                 Ccorreo objcorreo = new Ccorreo(Correo, "Hemos encontrado tu pariente!", "Hola! hemos encontrado tu pariente, entra a este link y confirmanos :"+ "https://vencindarioseguro.azurewebsites.net/Camaras/EncontramosTuPariente/" + idpariente);
                 if (objcorreo.Estado)
                 {
